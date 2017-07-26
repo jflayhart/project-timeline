@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import ReactHighcharts from 'react-highcharts';
 
 class Chart extends Component {
@@ -41,9 +41,9 @@ class Chart extends Component {
         name: 'Joe',
         data: [3, 4, 4, 2, 5],
       }],
-    }
+    };
 
-    return <ReactHighcharts config={config}/>
+    return <ReactHighcharts config={config} />;
   }
 }
 
