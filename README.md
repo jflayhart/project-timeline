@@ -1,5 +1,5 @@
 ## Why
-To save ourselves from wasting time printing weeks worth of paper, color ink, and, ultimately, our trees. Also because it's just easier and funner this way.
+To save ourselves from wasting time printing weeks worth of paper, color ink, and, ultimately, to save our trees. Also because it's just easier and more fun this way.
 
 ## What
 Display open and upcoming projects with set deadlines for each phase of the development lifecycle
