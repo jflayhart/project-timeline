@@ -1,0 +1,8 @@
+# System files
+**/.DS_Store
+
+# Logs
+npm-debug.log*
+
+# Generated files
+node_modules/
