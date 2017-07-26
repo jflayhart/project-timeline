@@ -1,9 +1,15 @@
 import React, { Component } from 'react';
 import ReactHighcharts from 'react-highcharts';
+import moment from 'moment';
 
 class Chart extends Component {
   componentWillMount() {
-    console.log('willMount::');
+    ReactHighcharts.Highcharts.setOptions({
+      global: {
+        useUTC: false,
+        timezone: 'America/Chicago',
+      },
+    });
   }
 
   render() {
@@ -12,34 +18,55 @@ class Chart extends Component {
         type: 'bar',
       },
       title: {
-        text: 'Stacked bar chart',
+        text: `As of ${moment().format('dddd, MMMM Do YYYY')}`,
       },
       xAxis: {
-        categories: ['Apples', 'Oranges', 'Pears', 'Grapes', 'Bananas'],
+        categories: ['Alerts Management', 'Pipeline Report', 'Leads Management'],
       },
       yAxis: {
-        min: 0,
+        type: 'datetime',
         title: {
-          text: 'Total fruit consumption',
+          text: 'Time Span',
+        },
+        // labels: {
+        //   formatter: function () {
+        //     const time = this.value;
+        //     console.log(time);
+        //     return moment(time).format('MMM D');
+        //   },
+        // },
+      },
+      tooltip: {
+        pointFormatter() {
+          const time = this.y;
+          const name = this.series.name;
+          const timeLeft = moment(time).diff(moment(), 'days');
+          return `${name}: ${moment(time).format('MMM D')} (${timeLeft} days left)`;
         },
       },
-      legend: {
-        reversed: true,
-      },
+      // legend: {
+      //   reversed: true,
+      // },
       plotOptions: {
         series: {
           stacking: 'normal',
         },
       },
+      // data: {
+      //   dateFormat: 'YYYY-mm-dd',
+      // },
       series: [{
-        name: 'John',
-        data: [5, 3, 4, 7, 2],
+        name: 'Release',
+        data: [parseInt(moment().add(1, 'month').format('x'))],
       }, {
-        name: 'Jane',
-        data: [2, 2, 3, 2, 1],
+        name: 'QAT',
+        data: [parseInt(moment().add(4, 'd').format('x'))],
       }, {
-        name: 'Joe',
-        data: [3, 4, 4, 2, 5],
+        name: 'Testing',
+        data: [parseInt(moment().add(2, 'd').format('x'))],
+      }, {
+        name: 'Development',
+        data: [parseInt(moment().format('x')), parseInt(moment().format('x')), parseInt(moment().format('x'))],
       }],
     };
 
