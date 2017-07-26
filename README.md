@@ -8,9 +8,7 @@ Display open and upcoming projects with set deadlines for each phase of the deve
 ```
 npm i
 npm start
-```
 
-```
 ░░░░░░░░░░░░░░░░░░░░░░█████████
 ░░███████░░░░░░░░░░███▒▒▒▒▒▒▒▒███
 ░░█▒▒▒▒▒▒█░░░░░░░███▒▒▒▒▒▒▒▒▒▒▒▒▒███
